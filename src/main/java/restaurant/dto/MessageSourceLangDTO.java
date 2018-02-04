@@ -19,8 +19,6 @@ public class MessageSourceLangDTO {
 	@Column (name = "message")
 	private String message;
 	
-	private String defaultMessage;
-	
 	@ManyToOne
 	@JoinColumn(name = "id_message_source")
 	MessageSourceDTO messageSource;

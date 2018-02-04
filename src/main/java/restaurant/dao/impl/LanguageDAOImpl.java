@@ -52,12 +52,14 @@ public class LanguageDAOImpl implements LanguageDAO {
 	}
 	
 	@Override
+	@SuppressWarnings("unchecked")
 	public List<LanguageDTO> getAllLanguage() {
 		List<LanguageDTO> languages = entityManager.createQuery("SELECT l FROM " + LanguageDTO.class.getName()).getResultList();
 		return languages;
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public List<LanguageDTO> getActiveLanguage() {
 		List<LanguageDTO> languages = entityManager.createQuery("SELECT l FROM " + LanguageDTO.class.getName() + " l WHERE l.active = 1").getResultList();
 		return languages;

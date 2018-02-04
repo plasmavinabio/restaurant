@@ -1,10 +1,7 @@
 package restaurant.info;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
-import org.springframework.stereotype.Repository;
 
 @Entity
 public class MessageSourceInfo {
