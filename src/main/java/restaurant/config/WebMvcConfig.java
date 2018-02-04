@@ -7,7 +7,6 @@ import java.util.List;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.validation.MessageCodesResolver;
@@ -37,18 +36,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
   @Bean(name = "messageSource")
   public MessageSource getMessageResource() {
 	  DatabaseMessageSource messageResource = new DatabaseMessageSource();
-
-      // Đọc vào file i18n/messages_xxx.properties
-      // Ví dụ: i18n/message_en.properties
-//      messageResource.setBasename("classpath:i18n/messages");
-//      messageResource.setDefaultEncoding("UTF-8");
       return messageResource;
   }
 
-  // To solver URL like:
-  // /SomeContextPath/en/login2
-  // /SomeContextPath/vi/login2
-  // /SomeContextPath/fr/login2
   @Bean(name = "localeResolver")
   public LocaleResolver getLocaleResolver() {
       LocaleResolver resolver = new UrlLocaleResolver();

@@ -14,6 +14,7 @@ import org.springframework.web.servlet.LocaleResolver;
 import restaurant.dao.MessageSourceDAO;
 
 @Controller
+@SuppressWarnings({"unused"})
 public class ExController {
 	@Autowired
 	private LocaleResolver localeResolver;
