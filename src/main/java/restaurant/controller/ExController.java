@@ -30,6 +30,7 @@ public class ExController {
 	@Autowired 
 	private MessageSourceDAO messageSourceDAO;
 	//Language in URL Example
+//	(value= {"/login", "/{${lang.code}}/login"}, "/{${lang.code}}/login-{someThings}.html"})
     @RequestMapping(value={"/login", "/{langCode}/login"})
     public String login(Model model) {
         return "login";

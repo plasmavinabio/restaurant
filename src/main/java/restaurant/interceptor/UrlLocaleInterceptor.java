@@ -1,11 +1,14 @@
 package restaurant.interceptor;
 
 import java.util.Locale;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
- 
+
+import org.springframework.web.servlet.HandlerMapping;
 import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.servlet.support.RequestContextUtils;
  
@@ -28,5 +31,12 @@ public class UrlLocaleInterceptor extends HandlerInterceptorAdapter {
  
        return true;
    }
- 
+
+	@Override
+	public void postHandle(
+			HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView)
+			throws Exception {
+		Map pathVariables = (Map) request.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE);
+		String value= (String) pathVariables.get("${lang.code}");
+	}
 }
