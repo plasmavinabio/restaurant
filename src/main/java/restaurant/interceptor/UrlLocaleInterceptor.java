@@ -23,7 +23,7 @@ public class UrlLocaleInterceptor extends HandlerInterceptorAdapter {
  
        // Lấy ra thông tin Locale từ LocaleResolver
        Locale locale = localeResolver.resolveLocale(request);
- 
+
        localeResolver.setLocale(request, response, locale);
  
        return true;
